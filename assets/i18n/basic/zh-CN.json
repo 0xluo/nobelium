@@ -1,9 +1,9 @@
 {
   "NAV": {
-    "INDEX": "博客",
+    "INDEX": "随笔",
     "RSS": "订阅",
-    "SEARCH": "搜索",
-    "ABOUT": "关于"
+    "SEARCH": "搜寻",
+    "ABOUT": "开场白"
   },
   "PAGINATION": {
     "PREV": "上一页",
@@ -15,7 +15,7 @@
   },
   "PAGE": {
     "ERROR_404": {
-      "MESSAGE": "什么也没有"
+      "MESSAGE": "好一似食尽鸟投林，落了片白茫茫大地真干净！"
     }
   }
 }

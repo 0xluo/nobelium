@@ -1,9 +1,10 @@
 {
   "NAV": {
-    "INDEX": "部落格",
+    "INDEX": "隨筆",
     "RSS": "訂閱",
     "SEARCH": "搜尋",
-    "ABOUT": "關於"
+    "ABOUT": "開場白",
+    "PHOTOS": "相片"
   },
   "PAGINATION": {
     "PREV": "上一頁",
@@ -15,7 +16,7 @@
   },
   "PAGE": {
     "ERROR_404": {
-      "MESSAGE": "這裡什麼都沒有"
+      "MESSAGE": "好一似食盡鳥投林，落了片白茫茫大地真乾淨！"
     }
   }
 }

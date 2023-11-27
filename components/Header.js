@@ -10,9 +10,10 @@ const NavBar = () => {
   const locale = useLocale()
   const links = [
     { id: 0, name: locale.NAV.INDEX, to: BLOG.path || '/', show: true },
-    { id: 1, name: locale.NAV.ABOUT, to: '/about', show: BLOG.showAbout },
-    { id: 2, name: locale.NAV.RSS, to: '/feed', show: true, external: true },
+    { id: 1, name: locale.NAV.PHOTOS, to: '/photos', show: true },
+    { id: 2, name: locale.NAV.ABOUT, to: '/about', show: BLOG.showAbout },
     { id: 3, name: locale.NAV.SEARCH, to: '/search', show: true }
+    //{ id: 4, name: locale.NAV.RSS, to: '/feed', show: true, external: true }
   ]
   return (
     <div className="flex-shrink-0">
@@ -40,14 +41,8 @@ export default function Header ({ navBarTitle, fullWidth }) {
   // Favicon
 
   const resolveFavicon = fallback => !fallback && dark ? '/favicon.dark.png' : '/favicon.png'
-  const [favicon, _setFavicon] = useState(resolveFavicon())
+  const [favicon] = useState('/favicon.dark.png');
   const setFavicon = fallback => _setFavicon(resolveFavicon(fallback))
-
-  useEffect(
-    () => setFavicon(),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [dark]
-  )
 
   const useSticky = !BLOG.autoCollapsedNavBar
   const navRef = useRef(/** @type {HTMLDivElement} */ undefined)
@@ -105,10 +100,9 @@ export default function Header ({ navBarTitle, fullWidth }) {
           <Link href="/" aria-label={BLOG.title}>
             <Image
               src={favicon}
-              width={24}
-              height={24}
+              width={152}
+              height={36}
               alt={BLOG.title}
-              onError={() => setFavicon(true)}
             />
           </Link>
           <HeaderName
@@ -125,6 +119,7 @@ export default function Header ({ navBarTitle, fullWidth }) {
   )
 }
 
+/** 
 const HeaderName = forwardRef(function HeaderName ({ siteTitle, siteDescription, postTitle, onClick }, ref) {
   return (
     <p
@@ -140,3 +135,31 @@ const HeaderName = forwardRef(function HeaderName ({ siteTitle, siteDescription,
     </p>
   )
 })
+**/
+
+const HeaderName = forwardRef(function HeaderName({  
+  siteTitle, siteDescription, postTitle, onClick
+}, ref) {
+
+  return (
+    <p
+      ref={ref}
+      className="header-name ml-2 font-medium text-gray-600 dark:text-gray-300 capture-pointer-events grid-rows-1 grid-cols-1 items-center"
+      onClick={onClick}
+    >
+      {postTitle && (
+        <span className="post-title row-start-1 col-start-1">
+          {postTitle}
+        </span>  
+      )}
+      
+      {/* 隐藏 siteTitle */}
+      {/* <span className="row-start-1 col-start-1">
+        <span className="site-title">{siteTitle}</span>
+        <span className="site-description font-normal">, {siteDescription}</span>
+      </span> */}
+
+    </p>
+  );
+
+});
